@@ -17,8 +17,8 @@ symbols = {
 }
 
 output, error = Popen(
-    ['git', 'status'], stdout=PIPE, stderr=PIPE).communicate()
-if sys.version_info[0] == 3:
+    ['git', 'status'], stdout=PIPE, stderr=PIPE, universal_newlines=True).communicate()
+if sys.version_info.major == 3:
     output = output.decode("utf-8")
     error = error.decode("utf-8")
 
