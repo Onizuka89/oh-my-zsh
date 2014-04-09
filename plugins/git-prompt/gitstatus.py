@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 from subprocess import Popen, PIPE
 import re
+import sys
 
 # change those symbols to whatever you prefer
 symbols = {
