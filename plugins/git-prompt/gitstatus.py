@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 from subprocess import Popen, PIPE
 import re
+import sys
 
 # change those symbols to whatever you prefer
 symbols = {
@@ -17,6 +18,9 @@ symbols = {
 
 output, error = Popen(
     ['git', 'status'], stdout=PIPE, stderr=PIPE, universal_newlines=True).communicate()
+if sys.version_info.major == 3:
+    output = output.decode("utf-8")
+    error = error.decode("utf-8")
 
 if error:
     import sys
